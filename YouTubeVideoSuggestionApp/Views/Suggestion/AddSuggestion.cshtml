@@ -1,0 +1,39 @@
+﻿@model YouTubeVideoSuggestionApp.DTOs.AddSuggestionDTO
+<div class="container">
+<h1 style="text-align:center;">@ViewData["title"]</h1>
+<form method="post">
+        @if (ViewData["error"] != null)
+        {
+            <div class="alert alert-dismissible alert-danger">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            @ViewData["error"]
+            </div>
+        }
+        <div class="mb-3">
+            <label asp-for="Username"></label>
+            <input asp-for="Username" class="form-control" type="text" />
+            <span asp-validation-for="Username" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Password"></label>
+            <input asp-for="Password" class="form-control" type="password" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+        <label asp-for="ShortDescription"></label>
+        <input asp-for="ShortDescription" class="form-control" type="text" />
+        <span asp-validation-for="ShortDescription" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="YouTubeUrl"></label>
+            <input asp-for="YouTubeUrl" class="form-control" type="text" />
+            <span asp-validation-for="YouTubeUrl" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">@ViewData["title"]</button>
+</form>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
